@@ -32,7 +32,7 @@ function getRSSHTML(data){
 			}
 
 		})
-		.then(url => fetch(url, {}))
+		.then(url => fetch(url))
 		.then(response => {
 			if (!response.ok) throw Error('Response not an okay status code. Status: ' + response.status);
 			return response.json();
