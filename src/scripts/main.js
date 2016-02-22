@@ -25,7 +25,7 @@ function getRSSHTML(data){
 
 				}
 
-				 resolve(`https://ftlabs-email-signatures-server.herokuapp.com/sig?url=${encodeURIComponent(data.rss)}&max=${data.amount || 1}&theme=${data.theme || 'pink'}&omit=${ommissions.join(",")}&size=${data.size}`);
+				resolve(`https://g15myr6ot9.execute-api.us-west-2.amazonaws.com/prod?url=${encodeURIComponent(data.rss)}&max=${data.amount || 1}&theme=${data.theme || 'pink'}&omit=${ommissions.join(",")}&size=${data.size}`);
 
 			} else {
 				reject("No data was passed");
@@ -35,7 +35,7 @@ function getRSSHTML(data){
 		.then(url => fetch(url))
 		.then(response => {
 			if (!response.ok) throw Error('Response not an okay status code. Status: ' + response.status);
-			return response.text();
+			return response.json();
 		})
 	;
 
